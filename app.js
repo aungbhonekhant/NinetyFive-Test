@@ -40,7 +40,7 @@ app.use(
 //passport js Authentication
 app.use(passport.initialize());
 app.use(passport.session());
-require('./utils/passport.auth');
+require('./Utils/passport.auth');
 
 
 app.use(connectFlash())

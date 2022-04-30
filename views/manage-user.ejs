@@ -42,7 +42,7 @@
                                 <th scope="row"><%= index + 1 %> </th>
                                 <td><%= user._id %></td>
                                 <td><a href="/admin/user/<%= user._id %>" class="link-info"><%= user.email %></a></td>
-                                <td><%= user.department.name %></td>
+                                <td><%= user.department?.name %></td>
                                 <td><%= user.role %></td>
                                 <td class="d-flex">
                                     <a href="/admin/update-user/<%= user._id %>" class="btn btn-outline-primary btn-sm">
