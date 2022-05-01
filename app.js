@@ -6,6 +6,7 @@ const connectFlash = require('connect-flash');
 const passport = require('passport');
 const MongoStore = require("connect-mongo")
 const flashMsgMiddleware = require('./middleware/flash-message');
+const {ensureLoggedIn} = require('connect-ensure-login')
 
 
 
@@ -61,8 +62,8 @@ const isAdmin = require('./middleware/isAdmin');
 app.use('/', require('./routes/index.route'))
 app.use('/auth', require('./routes/auth.route'))
 app.use('/user', require('./routes/user.route'))
-app.use('/admin',isAdmin, require('./routes/admin.route'))
-app.use('/department',isAdmin, require('./routes/department.route'))
+app.use('/admin',ensureLoggedIn({ redirectTo: '/auth/login' }), isAdmin, require('./routes/admin.route'))
+app.use('/department',ensureLoggedIn({ redirectTo: '/auth/login' }),isAdmin, require('./routes/department.route'))
 
 //middleware
 app.use(notFountMiddleware);
