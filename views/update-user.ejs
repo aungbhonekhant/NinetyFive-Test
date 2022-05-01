@@ -1,0 +1,47 @@
+<%- include('./layouts/header') %>
+
+<div class="row justify-content-center">
+    <div class="col-6 mt-5">
+        <div class="card border-info">
+            <div class="card-header">
+                <h2>Update User</h2> 
+            </div>
+            <div class="card-body">
+                <form action="/admin/update-user/<%=  userToUpdate._id %> " method="post">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" name="email" value="<%= userToUpdate.email %> " class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <select name="role" class="form-select" aria-label="Default select example">
+                            <option selected value="">Role</option>
+                            <% userRole.forEach(r => { %>
+                                <option value="<%= r %>" <%= userToUpdate.role === r ? 'selected':'' %> ><%= r %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="mb-3"> 
+                        <label for="department" class="form-label">Department </label>
+                        <select name="department"" class="form-select" aria-label="Default select example">
+                            <option selected value="">Department</option>
+                            <% departments.forEach(department => { %>
+                                <option value="<%= department._id %>" <%= userToUpdate.department.equals(department._id )? 'selected' : '' %> ><%= department.name %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <!-- <div class="mb-3">
+                        <label for="department" class="form-label">Department </label>
+                        <input type="text" value="<%= userToUpdate.department %> "  name="department" class="form-control" id="department" >
+                    </div> -->
+                    <button type="submit" class="btn btn-primary"> Update </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- input footer file -->
+<%- include('./layouts/footer') %>

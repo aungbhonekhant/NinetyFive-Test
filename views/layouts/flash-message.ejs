@@ -1,0 +1,14 @@
+<% if (locals.messages) { %>
+    <div class="row justify-content-center">
+        <div class="col-6 mt-5">
+            <% Object.keys(messages).forEach(key => { %>
+               <% messages[key].forEach(message => { %>
+                <div class="text-center alert alert-<%= key %>" role="alert">
+                    <%= message %> 
+                </div>
+               <% }) %>
+            <% }) %>
+            
+        </div>
+    </div>
+<% } %>

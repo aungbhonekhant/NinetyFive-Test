@@ -1,0 +1,42 @@
+<%- include('./layouts/header') %>
+
+<div class="row justify-content-center">
+    <div class="col-6 mt-5">
+        <div class="card border-info">
+            <div class="card-header"><h4>User Profile</h4></div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row d-flex">
+                            <label class="col-md-3 col-sm-4 col-xs-12">Id</label>
+                            <p class="text-info col-md-9 col-sm-8 col-xs-12"><%= currentUser._id %> </p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row d-flex">
+                            <label class="col-md-3 col-sm-4 col-xs-12">Email</label>
+                            <p class="text-info col-md-9 col-sm-8 col-xs-12"><%= currentUser.email %></p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row d-flex">
+                            <label class="col-md-3 col-sm-4 col-xs-12">Department</label>
+                            <p class="text-info col-md-9 col-sm-8 col-xs-12"><%= currentUser.department.name %></p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row d-flex">
+                            <label class="col-md-3 col-sm-4 col-xs-12">Role</label>
+                            <p class="text-info col-md-9 col-sm-8 col-xs-12"><%= currentUser.role %></p>
+                        </div>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- input footer file -->
+<%- include('./layouts/footer') %>
